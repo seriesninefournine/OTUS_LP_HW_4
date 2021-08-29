@@ -112,6 +112,9 @@ config.vm.define "server" do |server|
       vb.memory = "1024"
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
+  client.vm.provision "shell",
+    name: "Setup zfs",
+    path: "setup_zfs.sh"
   end
 
 end
